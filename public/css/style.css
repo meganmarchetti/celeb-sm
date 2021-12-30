@@ -1,17 +1,21 @@
-@import url("https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Dancing+Script&family=Raleway&display=swap");
 
 body {
     font-family: "Dancing Script", cursive;
-    background-color: lavender;
+    /* background-color: lavender; */
+    background-image: url("bg.png");
+    background-size: 65%;
+    background-position: top center;
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    height: 100vh;
+    width: 100vw;
+    margin: 0;
 }
 
 h1 {
     font-size: 30px;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-family: "Raleway", sans-serif;
     color: rgb(57, 28, 88);
 }
 
@@ -30,7 +34,7 @@ h3 {
 
 a {
     text-decoration: none;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-family: "Raleway", sans-serif;
     color: rebeccapurple;
     border: rebeccapurple solid 2px;
     background-color: #fff;
@@ -40,13 +44,14 @@ a {
 }
 
 a:hover {
+    font-weight: bold;
     background-color: rebeccapurple;
     color: lavender;
 }
 
 p {
     font-size: 20px;
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: "Raleway", sans-serif;
     max-width: 25%;
     text-align: center;
 }
@@ -58,4 +63,83 @@ img {
     margin: 10px;
     height: 400px;
     object-fit: cover;
+}
+
+.h-div,
+.q-div,
+.c-div {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.head-home {
+    position: top;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* justify-content: center; */
+    background-color: rebeccapurple;
+    margin-top: 0;
+    margin-bottom: 40px;
+}
+
+.head-home a {
+    background-color: transparent;
+    border: none;
+    color: lavender;
+    font-size: 35px;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+.head-home a:hover {
+    color: #fff;
+}
+
+.h-div h3 {
+    font-size: 50px;
+    margin-bottom: 150px;
+    margin-top: 0;
+}
+
+.h-div a {
+    font-size: 35px;
+    border: none;
+    padding: 15px;
+    margin-top: 10px;
+}
+
+.h-div a:hover {
+    background-color: transparent;
+    color: rebeccapurple;
+}
+
+.q-div {
+    margin-top: 60px;
+}
+
+.q-div h1 {
+    font-family: "Dancing Script", cursive;
+    color: rebeccapurple;
+    font-size: 50px;
+    margin-top: 0;
+    margin-bottom: 100px;
+    text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.3);
+}
+
+.c-div {
+    margin-top: 0;
+}
+
+.c-div h2 {
+    margin-top: 0;
+    font-size: 40px;
+}
+
+.c-div h1 {
+    margin: 10px;
+    font-size: 45px;
+    text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.3);
 }
