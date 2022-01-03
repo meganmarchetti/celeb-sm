@@ -9,20 +9,26 @@
 </head>
 <body>
     <div class="head-home">
-        <a href="">Home</a>
+        <a href="/home">Home</a>
 
     </div>
     <div class="h-div">
 
         <h3>
-            Find your celebrity soulmate!
+            Sign up to get started<%= punctuation %> <%= user %>
         </h3>
-        <a href="/q1">Get Started!</a>
-        <!-- <form action="/signup" method="POST">
+        <!-- <a href="/q1">Get Started!</a> -->
+        <form action="/signup" method="POST">
             <p><input type="text" name="username" placeholder="what's your username?"></p>
             <p><input type="password" name="password" placeholder="password"></p>
-            <input type="submit" value="sign up!">
-        </form> -->
+            <input type="submit" value="sign up!" >
+        </form>
+
+        <% if (invalid_login) { %>
+            <div class="error">
+                Invalid Login.
+            </div>
+        <% } %>
     </div>
 </body>
 </html>
