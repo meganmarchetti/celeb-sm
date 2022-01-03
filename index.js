@@ -15,12 +15,13 @@ app.use(session({
   cookie: { secure: false }
 }));
 
+
 app.get("/", (request, response) => {
     let session_username = "";
     let punctuation = "";
     let invalid_login = false;
-    const url = request.url;
-    var params = new URLSearchParams(url);
+    // const url = request.url;
+    invalid_login = request.query.reason || null;
 
     if(request.session && request.session.username){
         session_username = request.session.username;
@@ -47,6 +48,7 @@ app.post("/signup", (request, response) => {
 
 	if (found_user) {
 		request.session.username = user;
+        request.session.soulmate = "N/A";
 		response.redirect("/home");
 	} else {
 		request.session.destroy(() => {
@@ -58,7 +60,7 @@ app.post("/signup", (request, response) => {
 
 app.get("/home", (request, response) => {
     if (request.session && request.session.username) {
-        response.render("home.ejs", {user: request.session.username});
+        response.render("home.ejs", {user: request.session.username, smate: request.session.soulmate});
     }
     else {
         response.redirect("/");
@@ -69,7 +71,7 @@ app.get("/home", (request, response) => {
 
 app.get("/sign", (request, response) => {
     if ( request.session && request.session.username ) {
-		response.render("sign.ejs", {user: request.session.username});
+		response.render("sign.ejs", {user: request.session.username, smate: request.session.soulmate});
 	} else {
 		response.redirect("/");
     }
@@ -78,7 +80,7 @@ app.get("/sign", (request, response) => {
 app.get("/:qn", (request, response) => {
     const q = request.params["qn"];
     if (request.session && request.session.username) {
-        response.render(""+q+".ejs", {user: request.session.username});
+        response.render(""+q+".ejs", {user: request.session.username, smate: request.session.soulmate});
     }
     else {
         response.redirect("/");
@@ -88,7 +90,32 @@ app.get("/:qn", (request, response) => {
 app.get("/:cn", (request, response) => {
     const c = request.params["cn"];
     if (request.session && request.session.username) {
-        response.render(""+c+".ejs", {user: request.session.username});
+        // if (c == "c1"){
+        //     request.session.soulmate = "Betty White";
+        // }
+        // else if (c == "c2"){
+        //     request.session.soulmate = "The Rock";
+        // }
+        // else if (c == "c3"){
+        //     request.session.soulmate = "Snoop Dogg";
+        // }
+        // else if (c == "c4"){
+        //     request.session.soulmate = "Danny Devito";
+        // }
+        // else if (c == "c5"){
+        //     request.session.soulmate = "Tony the Tiger";
+        // }
+        // else if (c == "c6"){
+        //     request.session.soulmate = "Lady Gaga, specifically wearing the meat dress";
+        // }
+        // else if (c == "c7"){
+        //     request.session.soulmate = "Siri";
+        // }
+        // else if (c == "c8"){
+        //     request.session.soulmate = "Jake from State Farm";
+        // }
+        // console.log(request.session.soulmate);
+        response.render(""+c+".ejs", {user: request.session.username, smate: request.session.soulmate });
     }
     else {
         response.redirect("/");
